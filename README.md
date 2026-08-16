@@ -1,4 +1,4 @@
-# What’s in the Bottle? — CBM field guide
+# What’s in the Bottle? — CBM survey companion
 
 This website is the public companion to **“What’s in the Bottle? A Survey and Roadmap of Concept Bottleneck Models.”** It gives an accessible overview of how Concept Bottleneck Models (CBMs) work, how existing CBM research can be categorized, and which challenges remain open.
 

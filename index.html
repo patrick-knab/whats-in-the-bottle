@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="An interactive field guide to Concept Bottleneck Models: framework, taxonomy, literature, challenges, and open problems.">
+  <meta name="description" content="A companion website for a survey of Concept Bottleneck Models, their taxonomy, literature, and open problems.">
   <meta name="theme-color" content="#112c38">
-  <title>What's in the Bottle? — A CBM field guide</title>
+  <title>What's in the Bottle? — Concept Bottleneck Models</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
@@ -345,6 +345,12 @@
     .taxonomy-single .taxonomy-intro h2 { max-width: 760px; }
     .taxonomy-single .taxonomy-intro p { max-width: 760px; }
 
+    @media (max-width: 1050px) {
+      .nav-links { position: fixed; inset: 76px 0 auto; display: none; padding: 22px 24px 28px; border-bottom: 1px solid var(--line); background: var(--paper); box-shadow: 0 14px 28px rgba(17,44,56,.09); }
+      .nav-links.is-open { display: grid; gap: 18px; }
+      .nav-links a { padding: 4px 0; }
+      .menu-toggle { display: block; }
+    }
     @media (max-width: 950px) {
       .hero-grid, .framework-layout, .taxonomy-shell { grid-template-columns: 1fr; gap: 34px; }
       .taxonomy-intro { position: static; }
@@ -362,10 +368,6 @@
     }
     @media (max-width: 700px) {
       .wrap { width: min(100% - 30px, 560px); }
-      .nav-links { position: fixed; inset: 76px 0 auto; display: none; padding: 22px 15px 28px; border-bottom: 1px solid var(--line); background: var(--paper); box-shadow: 0 14px 28px rgba(17,44,56,.09); }
-      .nav-links.is-open { display: grid; gap: 18px; }
-      .nav-links a { padding: 4px 0; }
-      .menu-toggle { display: block; }
       .hero { padding-top: 52px; }
       h1 { font-size: clamp(3.2rem, 16vw, 5.5rem); }
       .hero-board { min-height: 0; padding: 20px; }
@@ -392,6 +394,9 @@
       .matrix-topline, .matrix-actions { align-items: flex-start; flex-direction: column; }
       .pagination-bar { align-items: flex-start; flex-direction: column; }
       .catalogue-card { border-radius: 20px; }
+      .figure-board .paper-figure, .intervention-figure, .taxonomy-figure { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .figure-board .paper-figure img, .intervention-figure img, .taxonomy-figure img { width: 720px; max-width: none; min-width: 720px; }
+      .feedback-taxonomy { grid-template-columns: 1fr; }
       .paper-grid { grid-template-columns: 1fr; }
       .paper-card, .paper-card:nth-child(2n), .paper-card:nth-child(3n) { border-right: 0; }
       .paper-link { opacity: 1; transform: none; }
@@ -411,7 +416,7 @@
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="What's in the Bottle home">
         <span class="brand-mark">x→c</span>
-        <span class="brand-text">CBM field guide<small>survey companion</small></span>
+        <span class="brand-text">CBM survey<small>taxonomy companion</small></span>
       </a>
       <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       <nav class="nav-links" aria-label="Primary navigation">
@@ -430,41 +435,41 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <p class="eyebrow">A survey + roadmap · 2026</p>
+          <p class="eyebrow">Survey and roadmap · TMLR 2026</p>
           <h1>What’s in the <em>bottle?</em></h1>
-          <p class="hero-copy">A field guide to Concept Bottleneck Models: the ideas, design choices, and unresolved questions behind a fast-growing way to make model reasoning inspectable.</p>
+          <p class="hero-copy">A survey of Concept Bottleneck Models (CBMs), their architectural choices, and the open problems that determine whether concept-based reasoning is interpretable and reliable.</p>
           <div class="hero-actions">
             <a class="button" href="#literature">Explore the literature <span aria-hidden="true">↓</span></a>
             <a class="button secondary" href="#framework">See the framework</a>
           </div>
-          <div class="hero-note"><strong>Why this exists</strong><span>CBM papers often solve different parts of the same pipeline. This guide gives those parts a shared map.</span></div>
+          <div class="hero-note"><strong>Purpose of the survey</strong><span>CBM papers differ in their input representation, concept source, prediction task, and training procedure. The taxonomy makes these choices explicit.</span></div>
         </div>
         <div class="hero-board figure-board" aria-label="Concept bottleneck model pipeline from the supplied paper figure">
-          <div class="board-label"><span>the core move</span><span class="mono">01 / 04</span></div>
-          <h2 class="board-title">Route the prediction through concepts a person can name, inspect, and change.</h2>
-          <figure class="paper-figure"><img src="assets/pipeline.png" alt="CBM pipeline showing input modality, input encoder, embeddings, concept source with semantics and grounding, activations, predictor, and output"><figcaption>Supplied figure: the pipeline separates the four modules that structure this guide.</figcaption></figure>
-          <div class="board-bottom"><span>the interface is the explanation</span><b>inspect / intervene</b></div>
+          <div class="board-label"><span>the core move</span></div>
+          <h2 class="board-title">Factor the prediction through an intermediate concept representation.</h2>
+          <figure class="paper-figure"><img src="assets/pipeline.png" alt="CBM pipeline showing input modality, input encoder, embeddings, concept source with semantics and grounding, activations, predictor, and output"><figcaption>Paper figure: the pipeline separates the four modules used in the taxonomy.</figcaption></figure>
+          <div class="board-bottom"><span>selective interpretability</span><b>inspect / intervene</b></div>
         </div>
       </div>
     </section>
 
     <section class="signal" aria-label="Survey at a glance">
       <div class="wrap signal-grid">
-        <div class="signal-cell"><strong>100+</strong><span>CBM-related works reviewed</span></div>
-        <div class="signal-cell"><strong>04</strong><span>modules in the unified taxonomy</span></div>
-        <div class="signal-cell"><strong>02</strong><span>concept questions made explicit</span></div>
-        <div class="signal-cell"><strong>01</strong><span>shared map for navigating the field</span></div>
+        <div class="signal-cell"><strong>100+</strong><span>CBM works analyzed</span></div>
+        <div class="signal-cell"><strong>04</strong><span>architectural modules</span></div>
+        <div class="signal-cell"><strong>02</strong><span>concept components separated</span></div>
+        <div class="signal-cell"><strong>01</strong><span>unified taxonomy</span></div>
       </div>
     </section>
 
     <section class="section" id="framework">
       <div class="wrap">
         <div class="section-heading">
-          <div><p class="eyebrow">Start here</p><h2>CBMs in one line.</h2></div>
-          <p class="section-intro">A Concept Bottleneck Model factorizes a prediction into two explicit stages: first predict a set of concepts from raw input; then make the task prediction from those concepts. The result is a model with a built-in surface for reasoning about <em>why</em> it decided.</p>
+          <div><h2>The CBM decomposition.</h2></div>
+          <p class="section-intro">A CBM maps an input <em>x</em> to human-understandable concepts <em>c</em> and uses those concepts to produce the output <em>y</em>. This explicit interface supports inspection of the predicted concepts, interventions that replace concept values and steer the output, and debugging when the concept representation or prediction is wrong.</p>
         </div>
         <div class="framework-visuals single">
-          <figure class="paper-figure intervention-figure"><img src="assets/interventions.png" alt="CBM intervention figure showing a bed concept changed from 0.8 to 0.0 and the output changing to living room"><figcaption>Intervention figure: concept edits expose a debugging and steering interface for CBMs.</figcaption></figure>
+          <figure class="paper-figure intervention-figure"><img src="assets/interventions.png" alt="CBM figure showing concept explanations, a bed concept changed from 0.8 to 0.0, the output changing to living room, and model debugging"><figcaption>Inspection, intervention, steering, and debugging at the concept interface.</figcaption></figure>
         </div>
       </div>
     </section>
@@ -472,9 +477,9 @@
     <section class="taxonomy-section" id="taxonomy">
       <div class="wrap taxonomy-shell taxonomy-single">
         <div class="taxonomy-intro">
-          <p class="eyebrow">The survey’s lens</p>
-          <h2>Taxonomy at a glance.</h2>
-          <p>Use the supplied map to ask what a paper changes—and what assumptions it inherits across input, concept, output, and training choices.</p>
+          <p class="eyebrow">Taxonomy</p>
+          <h2>Architectural choices in four modules.</h2>
+          <p>The survey separates input, concept, output, and training modules. Within the concept module, it distinguishes <em>semantics</em>—which concepts are used and what they mean—from <em>grounding</em>—how those concepts are detected and instantiated in the input.</p>
           <figure class="taxonomy-figure"><img src="assets/taxonomy.png" alt="Taxonomy of CBM input, concept, output, and training modules"><figcaption>Supplied taxonomy figure · the literature matrix below uses these categories</figcaption></figure>
         </div>
       </div>
@@ -483,8 +488,8 @@
     <section class="catalogue-section" id="literature">
       <div class="wrap">
         <div class="catalogue-head">
-          <div><p class="eyebrow">Navigate the field</p><h2>Literature, organized by the question it answers.</h2></div>
-          <p>The literature is the main interface of this guide. Search across papers, filter by the survey’s modules, and compare design choices side by side.</p>
+          <div><p class="eyebrow">Categorization</p><h2>A structured view of the CBM literature.</h2></div>
+          <p>Each row assigns a named primary work to the taxonomy dimensions used in the survey. Search and compare modalities, concept sources, representations, predictors, tasks, and training strategies.</p>
         </div>
         <div class="catalogue-card matrix-card">
           <div class="matrix-toolbar">
@@ -980,33 +985,33 @@
 
     <section class="trajectory-section">
       <div class="wrap">
-        <div class="section-heading"><div><p class="eyebrow">A field in motion</p><h2>From image classification toward generative and multimodal settings.</h2></div><p class="section-intro">The literature’s center of gravity is widening: concept bottlenecks are moving from a visual classification template into generative AI and richer multimodal systems.</p></div>
+        <div class="section-heading"><div><p class="eyebrow">Development of the field</p><h2>From the canonical model to new settings.</h2></div><p class="section-intro">The literature begins with supervised visual prediction and progressively changes the concept representation, concept source, intervention mechanism, and task setting.</p></div>
         <div class="trajectory">
-          <article class="moment"><span class="moment-dot"></span><span class="moment-year">2020</span><h3>The canonical bottle</h3><p>Introduced for image classification, CBMs place an explicit concept layer between visual features and the final class prediction.</p></article>
-          <article class="moment"><span class="moment-dot"></span><span class="moment-year">2021—22</span><h3>Pressure tests</h3><p>Leakage, concept quality, and the accuracy–interpretability trade-off move to the foreground.</p></article>
-          <article class="moment"><span class="moment-dot"></span><span class="moment-year">2023—25</span><h3>Looser, larger, richer</h3><p>Embeddings, label-free concepts, discovery, multimodality, and editable reasoning expand the design space.</p></article>
-          <article class="moment"><span class="moment-dot"></span><span class="moment-year">2026—</span><h3>Generative and multimodal frontiers</h3><p>CBMs move into generative AI and richer modalities, including video, text, tabular and time-series data, graphs, medical diagnosis, and multimodal tasks.</p></article>
+          <article class="moment"><span class="moment-dot"></span><span class="moment-year">2020</span><h3>Concept Bottleneck Models</h3><p><a href="https://proceedings.mlr.press/v119/koh20a.html" target="_blank" rel="noreferrer">Koh et al.</a> introduce the two-stage CBM formulation and demonstrate it on x-ray grading and bird identification, with concepts mediating the final prediction.</p></article>
+          <article class="moment"><span class="moment-dot"></span><span class="moment-year">2021—22</span><h3>Reliability challenges</h3><p>Subsequent work examines concept quality, information leakage, label noise, and the relation between concept accuracy and task performance.</p></article>
+          <article class="moment"><span class="moment-dot"></span><span class="moment-year">2023—25</span><h3>Extensions of the bottleneck</h3><p>Methods modify concept representations, concept sources, intervention mechanisms, and training procedures, including label-free and multimodal variants.</p></article>
+          <article class="moment"><span class="moment-dot"></span><span class="moment-year">2026—</span><h3>Generative and multimodal settings</h3><p>Recent work applies concept-based interfaces to language and generative models and to modalities beyond the original image-classification setting.</p></article>
         </div>
       </div>
     </section>
 
     <section class="challenges-section" id="open-problems">
       <div class="wrap">
-        <div class="section-heading"><div><p class="eyebrow">Where the bottle still cracks</p><h2>Open problems worth carrying forward.</h2></div><p class="section-intro">The hard part is not adding a concept layer. It is making the layer semantically sound, causally useful, and honest about what the model does not know.</p></div>
+        <div class="section-heading"><div><p class="eyebrow">Challenges and open problems</p><h2>Questions that remain unresolved.</h2></div><p class="section-intro">The points below are only a fraction of the challenges discussed in the paper. The survey groups open problems around concept-module design, model reliability, and the validation and scope of CBMs.</p></div>
         <div class="challenge-grid">
-          <article class="challenge"><span class="challenge-id">01 · SEMANTICS</span><h3>Who gets to name a concept?</h3><p>Expert vocabularies are valuable but expensive; discovered vocabularies are scalable but may be unstable, biased, or hard to interpret.</p><div class="challenge-footer"><i></i>concept quality</div></article>
-          <article class="challenge"><span class="challenge-id">02 · GROUNDING</span><h3>Is the evidence really there?</h3><p>A concept label can look right while the model relies on the wrong region, token, or shortcut. Grounding needs stronger diagnostics.</p><div class="challenge-footer"><i></i>faithfulness</div></article>
-          <article class="challenge"><span class="challenge-id">03 · COMPLETENESS</span><h3>What is missing from the set?</h3><p>A bottleneck only helps if the chosen concepts contain enough information for the task—or if the model can represent uncertainty about what they miss.</p><div class="challenge-footer"><i></i>coverage</div></article>
-          <article class="challenge"><span class="challenge-id">04 · LEAKAGE</span><h3>Can the model sneak around it?</h3><p>Residual pathways and overly expressive predictors can preserve task information outside the intended semantic interface.</p><div class="challenge-footer"><i></i>enforcement</div></article>
-          <article class="challenge"><span class="challenge-id">05 · INTERVENTION</span><h3>Does editing help in practice?</h3><p>Intervention is often demonstrated by flipping a concept. Real users need calibrated, localized, and actionable corrections.</p><div class="challenge-footer"><i></i>human utility</div></article>
-          <article class="challenge"><span class="challenge-id">06 · SCALE</span><h3>Can the promise travel?</h3><p>CBMs must work across modalities, tasks, languages, distribution shifts, and high-stakes settings without losing their meaning.</p><div class="challenge-footer"><i></i>generalization</div></article>
+          <article class="challenge"><span class="challenge-id">01 · SEMANTICS</span><h3>Concept acquisition and semantics</h3><p>Which concepts should be selected, who defines them, and how should their meaning be specified? Expert concepts are costly; discovered concepts may be unstable or difficult to interpret.</p><div class="challenge-footer"><i></i>concept quality</div></article>
+          <article class="challenge"><span class="challenge-id">02 · GROUNDING</span><h3>Concept grounding</h3><p>Does an activation correspond to the relevant evidence in the input, or can the model obtain the correct label through a shortcut?</p><div class="challenge-footer"><i></i>faithfulness</div></article>
+          <article class="challenge"><span class="challenge-id">03 · REPRESENTATION</span><h3>Representation and completeness</h3><p>Concept representations must be expressive enough for the task while remaining human-understandable. Incomplete concept sets may omit task-relevant information.</p><div class="challenge-footer"><i></i>coverage</div></article>
+          <article class="challenge"><span class="challenge-id">04 · LEAKAGE</span><h3>Leakage and enforcement</h3><p>Residual pathways and expressive predictors can carry information outside the intended concept path, weakening selective interpretability.</p><div class="challenge-footer"><i></i>bottleneck integrity</div></article>
+          <article class="challenge"><span class="challenge-id">05 · INTERVENTION</span><h3>Intervention reliability</h3><p>A useful intervention requires calibrated concept predictions and a predictable downstream effect, not only a change in a concept score.</p><div class="challenge-footer"><i></i>intervention utility</div></article>
+          <article class="challenge"><span class="challenge-id">06 · VALIDATION</span><h3>Validation and scope</h3><p>Evaluation must distinguish predictive accuracy, concept quality, faithfulness, intervention behavior, and performance across domains and distribution shifts.</p><div class="challenge-footer"><i></i>evaluation</div></article>
         </div>
       </div>
     </section>
 
     <section class="citation-section" id="cite">
       <div class="wrap">
-        <div class="section-heading"><div><p class="eyebrow">Reuse the survey</p><h2>How to cite.</h2></div><p class="section-intro">If this field guide or the survey’s taxonomy helps your work, cite the paper using the BibTeX entry below.</p></div>
+        <div class="section-heading"><div><p class="eyebrow">Citation</p><h2>Cite the survey.</h2></div><p class="section-intro">Use the BibTeX entry below when referring to the survey and its taxonomy.</p></div>
         <div class="citation-card">
           <div class="citation-topline"><span>BibTeX</span><button class="copy-citation" id="copy-citation" type="button">Copy citation</button></div>
           <pre id="bibtex"><code>@article{
@@ -1019,7 +1024,7 @@ year={2026},
 url={https://openreview.net/forum?id=IF5vnqxBEW},
 note={}
 }</code></pre>
-          <p class="citation-note">The literature matrix is a curated orientation layer; the survey contains the complete categorization.</p>
+          <p class="citation-note">The matrix is a selected, searchable view of the categorization presented in the survey.</p>
         </div>
       </div>
     </section>
@@ -1051,7 +1056,7 @@ note={}
   </div>
 
   <footer>
-    <div class="wrap footer-row"><p><strong>What’s in the Bottle?</strong> is a visual companion to <a href="https://openreview.net/forum?id=IF5vnqxBEW" target="_blank" rel="noreferrer">Knab et al., “A Survey and Roadmap of Concept Bottleneck Models”</a>, published in TMLR (2026). The literature cards are a curated orientation layer, not a replacement for the survey’s full categorization. <button class="footer-feedback feedback-trigger" type="button">Suggest an addition or correction ↗</button></p><span class="footer-mark">x → c → y · inspectable by design</span></div>
+    <div class="wrap footer-row"><p><strong>What’s in the Bottle?</strong> accompanies <a href="https://openreview.net/forum?id=IF5vnqxBEW" target="_blank" rel="noreferrer">Knab et al., “A Survey and Roadmap of Concept Bottleneck Models”</a>, published in TMLR (2026). <button class="footer-feedback feedback-trigger" type="button">Suggest an addition or correction ↗</button></p><span class="footer-mark">x → c → y · concept-level interface</span></div>
   </footer>
 
   <script>
@@ -1194,7 +1199,7 @@ note={}
         ['Task', value('#feedback-task')],
         ['Training', value('#feedback-training')]
       ].map(([label, entry]) => `${label}: ${entry}`).join('\n');
-      const subject = `CBM field guide suggestion: ${value('#feedback-paper-title')}`;
+      const subject = `CBM survey index suggestion: ${value('#feedback-paper-title')}`;
       const body = `Paper title: ${value('#feedback-paper-title')}\nArXiv link: ${value('#feedback-arxiv')}\n\nDescription:\n${value('#feedback-description')}\n\nTaxonomy classification:\n${taxonomy}`;
       window.location.href = `mailto:patrick.knab@tu-clausthal.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       closeFeedback();
