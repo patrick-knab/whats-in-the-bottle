@@ -416,7 +416,7 @@
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="What's in the Bottle home">
         <span class="brand-mark">x→c</span>
-        <span class="brand-text">CBM survey<small>taxonomy companion</small></span>
+        <span class="brand-text">CBM survey<small>taxonomy</small></span>
       </a>
       <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       <nav class="nav-links" aria-label="Primary navigation">
@@ -445,27 +445,17 @@
           <div class="hero-note"><strong>Purpose of the survey</strong><span>CBM papers differ in their input representation, concept source, prediction task, and training procedure. The taxonomy makes these choices explicit.</span></div>
         </div>
         <div class="hero-board figure-board" aria-label="Concept bottleneck model pipeline from the supplied paper figure">
-          <div class="board-label"><span>the core move</span></div>
-          <h2 class="board-title">Factor the prediction through an intermediate concept representation.</h2>
+          <h2 class="board-title">Perform the prediction through an intermediate concept representation.</h2>
           <figure class="paper-figure"><img src="assets/pipeline.png" alt="CBM pipeline showing input modality, input encoder, embeddings, concept source with semantics and grounding, activations, predictor, and output"><figcaption>Paper figure: the pipeline separates the four modules used in the taxonomy.</figcaption></figure>
-          <div class="board-bottom"><span>selective interpretability</span><b>inspect / intervene</b></div>
+          <div class="board-bottom"><b>inspect / intervene</b></div>
         </div>
       </div>
     </section>
-
-    <section class="signal" aria-label="Survey at a glance">
-      <div class="wrap signal-grid">
-        <div class="signal-cell"><strong>100+</strong><span>CBM works analyzed</span></div>
-        <div class="signal-cell"><strong>04</strong><span>architectural modules</span></div>
-        <div class="signal-cell"><strong>02</strong><span>concept components separated</span></div>
-        <div class="signal-cell"><strong>01</strong><span>unified taxonomy</span></div>
-      </div>
-    </section>
-
+    
     <section class="section" id="framework">
       <div class="wrap">
         <div class="section-heading">
-          <div><h2>The CBM decomposition.</h2></div>
+          <div><h2>Concept Bottleneck Models.</h2></div>
           <p class="section-intro">A CBM maps an input <em>x</em> to human-understandable concepts <em>c</em> and uses those concepts to produce the output <em>y</em>. This explicit interface supports inspection of the predicted concepts, interventions that replace concept values and steer the output, and debugging when the concept representation or prediction is wrong.</p>
         </div>
         <div class="framework-visuals single">
