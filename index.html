@@ -1029,7 +1029,7 @@ note={}
     <section class="feedback-panel" role="dialog" aria-modal="true" aria-labelledby="feedback-title">
       <div class="feedback-head"><p class="eyebrow">Contribute to the index</p><button class="feedback-close feedback-dismiss" type="button" aria-label="Close feedback form">×</button></div>
       <h2 id="feedback-title">Suggest an addition or correction.</h2>
-      <p class="feedback-intro">Add a paper and classify it using the survey taxonomy. Submitting opens a pre-filled email draft addressed to <strong>patrick.knab@tu-clausthal.de</strong>; the site does not send anything automatically.</p>
+      <p class="feedback-intro">Add a paper and classify it using the survey taxonomy. Submitting opens a pre-filled email draft addressed to <strong>patrick.knab@tu-clausthal.de</strong> and <strong>david.steinmann@tu-darmstadt.de</strong>; the site does not send anything automatically.</p>
       <form class="feedback-form" id="feedback-form">
         <label for="feedback-arxiv">arXiv link<input id="feedback-arxiv" name="arxiv" type="url" placeholder="https://arxiv.org/abs/..." required></label>
         <label for="feedback-paper-title">Paper title<input id="feedback-paper-title" name="paper-title" type="text" placeholder="Title of the work" required></label>
@@ -1443,7 +1443,7 @@ note={}
       ].map(([label, entry]) => `${label}: ${entry}`).join('\n');
       const subject = `CBM survey index suggestion: ${value('#feedback-paper-title')}`;
       const body = `Paper title: ${value('#feedback-paper-title')}\nArXiv link: ${value('#feedback-arxiv')}\n\nDescription:\n${value('#feedback-description')}\n\nTaxonomy classification:\n${taxonomy}`;
-      window.location.href = `mailto:patrick.knab@tu-clausthal.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = `mailto:patrick.knab@tu-clausthal.de,david.steinmann@tu-darmstadt.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       closeFeedback();
     });
   </script>

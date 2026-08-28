@@ -38,4 +38,4 @@ note={}
 }
 ```
 
-To suggest an addition or correction, use the website’s **Suggest an addition** button or contact `patrick.knab@tu-clausthal.de`.
+To suggest an addition or correction, use the website’s **Suggest an addition** button or contact `patrick.knab@tu-clausthal.de` and `david.steinmann@tu-darmstadt.de`.
