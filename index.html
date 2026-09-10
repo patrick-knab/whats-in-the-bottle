@@ -335,6 +335,8 @@
     .taxonomy-figure figcaption { margin: 10px 4px 0; color: var(--muted); font-family: "DM Mono", monospace; font-size: .64rem; }
     .literature-section { padding-top: 110px; }
     .catalogue-head .section-intro { max-width: 560px; }
+    /* The literature matrix is the page's dense reference tool, so it can use a wider reading measure. */
+    .catalogue-section > .wrap { width: min(1560px, calc(100% - 48px)); }
     .catalogue-card.matrix-card { border-radius: var(--radius-xl); }
     .matrix-toolbar { padding: 23px; border-bottom: 1px solid var(--line); background: #f1f4ef; }
     .matrix-topline { display: flex; justify-content: space-between; gap: 20px; align-items: center; margin-bottom: 16px; }
@@ -369,19 +371,19 @@
     .literature-table th button { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; color: inherit; background: transparent; font: inherit; text-transform: inherit; }
     .literature-table th button:hover { color: var(--coral); }
     .sort-indicator { color: var(--coral); }
-    .literature-table td { padding: 14px 12px; border-bottom: 1px solid #e5e9e4; vertical-align: top; background: var(--paper-bright); font-size: .7rem; }
+    .literature-table td { padding: 14px 12px; border-bottom: 1px solid #e5e9e4; vertical-align: top; overflow-wrap: anywhere; background: var(--paper-bright); font-size: .7rem; }
     .literature-table tbody tr:hover td { background: #fff8f2; }
     .literature-table tbody tr.is-hidden { display: none; }
-    .matrix-paper-title { display: block; margin-bottom: 4px; color: var(--ink); font-family: "Playfair Display", Georgia, serif; font-size: .98rem; line-height: 1.18; text-decoration: none; }
+    .matrix-paper-title { display: block; margin-bottom: 4px; overflow-wrap: anywhere; color: var(--ink); font-family: "Playfair Display", Georgia, serif; font-size: .98rem; line-height: 1.18; text-decoration: none; }
     .matrix-paper-title:hover { color: var(--coral); }
-    .matrix-authors { display: block; color: var(--muted); font-size: .65rem; }
+    .matrix-authors { display: block; overflow-wrap: anywhere; color: var(--muted); font-size: .65rem; }
     .track-tag { display: inline-block; margin-left: 5px; padding: 2px 5px; border-radius: 4px; font-family: "DM Mono", monospace; font-size: .55rem; line-height: 1.1; text-transform: uppercase; letter-spacing: .04em; vertical-align: 1px; }
     .track-tag.main-track { color: var(--blue-deep); background: var(--aqua); }
     .track-tag.workshop { color: #805f16; background: var(--yellow); }
     .track-tag.journal { color: #8a4b3b; background: #f5e2dc; }
     .matrix-year { color: var(--coral); font-family: "DM Mono", monospace; font-size: .68rem; font-weight: 500; white-space: nowrap; }
-    .matrix-cell { display: flex; flex-wrap: wrap; gap: 4px; }
-    .matrix-chip { display: inline-flex; align-items: center; min-height: 22px; padding: 2px 6px; border-radius: 5px; color: var(--blue-deep); background: var(--aqua); font-family: "DM Mono", monospace; font-size: .58rem; line-height: 1.1; white-space: nowrap; }
+    .matrix-cell { display: flex; min-width: 0; flex-wrap: wrap; gap: 4px; }
+    .matrix-chip { display: inline-flex; align-items: center; max-width: 100%; min-height: 22px; padding: 2px 6px; border-radius: 5px; overflow-wrap: anywhere; color: var(--blue-deep); background: var(--aqua); font-family: "DM Mono", monospace; font-size: .58rem; line-height: 1.1; white-space: normal; word-break: break-word; }
     .literature-table td:nth-child(4), .literature-table td:nth-child(5), .literature-table td:nth-child(6) { background: #fffaf5; }
     .literature-table td:nth-child(7), .literature-table td:nth-child(8) { background: #f5faf8; }
     .literature-table td:nth-child(9) { background: #f6f5f5; }
@@ -422,6 +424,7 @@
     }
     @media (max-width: 700px) {
       .wrap { width: min(100% - 30px, 560px); }
+      .catalogue-section > .wrap { width: min(100% - 30px, 560px); }
       .hero { padding-top: 52px; }
       h1 { font-size: clamp(3.2rem, 16vw, 5.5rem); }
       .hero-board { min-height: 0; padding: 20px; }
