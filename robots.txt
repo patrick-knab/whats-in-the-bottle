@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://patrick-knab.github.io/whats-in-the-bottle/sitemap.xml

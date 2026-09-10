@@ -3,12 +3,62 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A companion website for a survey of Concept Bottleneck Models, their taxonomy, literature, and open problems.">
+  <meta name="description" content="CBM survey and research guide for Concept Bottleneck Models: taxonomy, searchable literature matrix, interventions, concept grounding, leakage, and open problems.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Patrick Knab, David Steinmann, Christian Bartelt, Kristian Kersting, Bernt Schiele, Thomas Seidl, Udo Schlegel, and Wolfgang Stammer">
+  <meta name="keywords" content="CBM survey, Concept Bottleneck Models, concept bottleneck model survey, concept-based learning, interpretable machine learning, explainable AI, concept interventions, CBM taxonomy">
   <meta name="theme-color" content="#112c38">
-  <title>What's in the Bottle? — Concept Bottleneck Models</title>
+  <link rel="canonical" href="https://patrick-knab.github.io/whats-in-the-bottle/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="What's in the Bottle?">
+  <meta property="og:title" content="CBM Survey: Concept Bottleneck Models — What's in the Bottle?">
+  <meta property="og:description" content="Explore a survey, taxonomy, and searchable literature matrix for Concept Bottleneck Models (CBMs).">
+  <meta property="og:url" content="https://patrick-knab.github.io/whats-in-the-bottle/">
+  <meta property="og:image" content="https://patrick-knab.github.io/whats-in-the-bottle/assets/pipeline.png">
+  <meta property="og:image:alt" content="Pipeline and taxonomy for Concept Bottleneck Models">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CBM Survey: Concept Bottleneck Models">
+  <meta name="twitter:description" content="A taxonomy, literature matrix, and roadmap for Concept Bottleneck Models.">
+  <meta name="twitter:image" content="https://patrick-knab.github.io/whats-in-the-bottle/assets/pipeline.png">
+  <title>CBM Survey: Concept Bottleneck Models | What's in the Bottle?</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "What's in the Bottle?",
+        "url": "https://patrick-knab.github.io/whats-in-the-bottle/",
+        "description": "A survey companion and research guide for Concept Bottleneck Models."
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "headline": "What's in the Bottle? A Survey and Roadmap of Concept Bottleneck Models",
+        "description": "A survey and roadmap of Concept Bottleneck Models, covering their taxonomy, literature, interventions, and open problems.",
+        "url": "https://patrick-knab.github.io/whats-in-the-bottle/",
+        "mainEntityOfPage": "https://patrick-knab.github.io/whats-in-the-bottle/",
+        "image": "https://patrick-knab.github.io/whats-in-the-bottle/assets/pipeline.png",
+        "datePublished": "2026",
+        "isPartOf": {"@type": "Periodical", "name": "Transactions on Machine Learning Research"},
+        "sameAs": "https://openreview.net/forum?id=IF5vnqxBEW",
+        "keywords": ["Concept Bottleneck Models", "CBM survey", "interpretable machine learning", "concept-based learning", "explainable AI"],
+        "author": [
+          {"@type": "Person", "name": "Patrick Knab"},
+          {"@type": "Person", "name": "David Steinmann"},
+          {"@type": "Person", "name": "Christian Bartelt"},
+          {"@type": "Person", "name": "Kristian Kersting"},
+          {"@type": "Person", "name": "Bernt Schiele"},
+          {"@type": "Person", "name": "Thomas Seidl"},
+          {"@type": "Person", "name": "Udo Schlegel"},
+          {"@type": "Person", "name": "Wolfgang Stammer"}
+        ]
+      }
+    ]
+  }
+  </script>
   <style>
     :root {
       --ink: #112c38;
@@ -441,7 +491,7 @@
         <div>
           <p class="eyebrow">Survey and roadmap · TMLR 2026</p>
           <h1>What’s in the <em>bottle?</em></h1>
-          <p class="hero-copy">A survey of Concept Bottleneck Models (CBMs), their architectural choices, and the open problems that determine whether concept-based reasoning is interpretable and reliable.</p>
+          <p class="hero-copy">A <strong>CBM survey</strong> and research guide to <strong>Concept Bottleneck Models (CBMs)</strong>: their architectural choices, literature, and the open problems that determine whether concept-based reasoning is interpretable and reliable.</p>
           <div class="hero-actions">
             <a class="button" href="#literature">Explore the literature <span aria-hidden="true">↓</span></a>
             <a class="button secondary" href="#framework">See the framework</a>
